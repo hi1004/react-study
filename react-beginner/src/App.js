@@ -3,7 +3,11 @@ import './App.css';
 import MyComponent from './components/MyComponent';
 
 function App() {
-  return <MyComponent name="OhByeongHeon">React</MyComponent>;
+  return (
+    <MyComponent name="OhByeongHeon" favoriteNumber={7}>
+      React
+    </MyComponent>
+  );
 }
 
 export default App;
