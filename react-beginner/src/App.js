@@ -1,4 +1,5 @@
 import './App.css';
+import EventPractice from './components/EventPractice';
 import MyComponent from './components/MyComponent';
 import Say from './components/Say';
 
@@ -9,6 +10,7 @@ function App() {
         React
       </MyComponent>
       <Say />
+      <EventPractice />
     </>
   );
 }
