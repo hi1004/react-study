@@ -7,6 +7,7 @@ import ValidationSample from './components/ValidationSample';
 import UseStateHook from './components/hooks/UseStateHook';
 import UseEffectHook from './components/hooks/UseEffectHook';
 import { useState } from 'react';
+import UseReducerHook from './components/hooks/UseReducerHook';
 
 function App() {
   const [visibale, setVisibale] = useState(false);
@@ -29,6 +30,7 @@ function App() {
         <hr />
       </div>
       {visibale && <UseEffectHook />}
+      <UseReducerHook />
     </>
   );
 }

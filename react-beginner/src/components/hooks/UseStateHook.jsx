@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import { useReducer } from 'react';
+
+const reducer = (state, action) => {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+};
 
 const UseStateHook = () => {
   const [value, setValue] = useState(0);
-  const [inputInfo, setInputInfo] = useState({
+  const [state, dispatch] = useReducer(reducer, {
     name: '',
     nickname: '',
   });
-  const handleChange = e => {
-    setInputInfo({
-      ...inputInfo,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const { name, nickname } = inputInfo;
+  const { name, nickname } = state;
+  const handleChange = e => dispatch(e.target);
   return (
     <div>
       <h1>현재 카운터 값은 {value} 입니다.</h1>
