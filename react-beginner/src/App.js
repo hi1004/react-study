@@ -8,6 +8,7 @@ import UseStateHook from './components/hooks/UseStateHook';
 import UseEffectHook from './components/hooks/UseEffectHook';
 import { useState } from 'react';
 import UseReducerHook from './components/hooks/UseReducerHook';
+import UseMemoHook from './components/hooks/UseMemoHook';
 
 function App() {
   const [visibale, setVisibale] = useState(false);
@@ -31,6 +32,7 @@ function App() {
       </div>
       {visibale && <UseEffectHook />}
       <UseReducerHook />
+      <UseMemoHook />
     </>
   );
 }
