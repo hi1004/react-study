@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import './App.css';
 import EventPractice from './components/EventPractice';
+import IterationSample from './components/IterationSample';
 import MyComponent from './components/MyComponent';
 import Say from './components/Say';
 import ValidationSample from './components/ValidationSample';
@@ -17,6 +18,7 @@ function App() {
       <Say />
       <EventPractice />
       <ValidationSample />
+      <IterationSample />
     </>
   );
 }
