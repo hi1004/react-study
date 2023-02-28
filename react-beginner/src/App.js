@@ -9,6 +9,7 @@ import UseEffectHook from './components/hooks/UseEffectHook';
 import { useState } from 'react';
 import UseReducerHook from './components/hooks/UseReducerHook';
 import UseMemoHook from './components/hooks/UseMemoHook';
+import UseCallbackHook from './components/hooks/UseCallbackHook';
 
 function App() {
   const [visibale, setVisibale] = useState(false);
@@ -33,6 +34,7 @@ function App() {
       {visibale && <UseEffectHook />}
       <UseReducerHook />
       <UseMemoHook />
+      <UseCallbackHook />
     </>
   );
 }
