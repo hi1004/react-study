@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
-import { useReducer } from 'react';
+// import { useReducer } from 'react';
+import useCustomHook from './useCustomHook';
 
-const reducer = (state, action) => {
-  return {
-    ...state,
-    [action.name]: action.value,
-  };
-};
+// const reducer = (state, action) => {
+//   return {
+//     ...state,
+//     [action.name]: action.value,
+//   };
+// };
 
 const UseStateHook = () => {
   const [value, setValue] = useState(0);
-  const [state, dispatch] = useReducer(reducer, {
+  // const [state, dispatch] = useReducer(reducer, {
+  //   name: '',
+  //   nickname: '',
+  // });
+  const [state, handleChange] = useCustomHook({
     name: '',
     nickname: '',
   });
   const { name, nickname } = state;
-  const handleChange = e => dispatch(e.target);
+  // const handleChange = e => dispatch(e.target);
   return (
     <div>
       <h1>현재 카운터 값은 {value} 입니다.</h1>
