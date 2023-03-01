@@ -9,7 +9,7 @@
 |[3. propsとは](#3-propsとは)||
 |[4. stateとは?](#4-stateとは)||
 |[5. Event Handling](#5-Event-Handling)|[5.1 イベントを使う時気を付ける事](#51-イベントを使う時気を付ける事)<br/>[5.2 onChange, onClick, onKeyDown](#52-onchange-onclick-onkeydown-参照)|
-|[6. ref:DOMに名づける(useRef)](#6-refdomに名づけるuseref)|[6.1 DOMを必ず使わないとならない場合](#61-DOMを必ず使わないとならない場合)|
+|[6. ref:DOMに名づける(useRef)](#6-refdomに名づけるuseref)|[6.1 DOMを必ず使わないとならない場合](#61-domを必ず使わないとならない場合-参照)|
 |[7. コンポーネントの繰り返しとkey](#7-コンポーネントの繰り返しとkey)|[7.1 配列map関数](#71-map関数で繰り返し-参照)<br/>[7.2 filter関数でデータの除去](#72-filter関数でデータの除去-参照)|
 |[8. Hooks](#8-hooks)|[8.1 useState](#81-usestate-参照)<br/>[8.2 useEffect](#82-useeffect-参照)<br/>[8.3 useReducer](#83-usereducer)<br/>[8.4 useMemo](#84-useMemo)<br/>[8.5 useCallback](#85-useCallback)<br/>[8.6 useRef](#86-useRef)<br/>[8.7 customHooks](#87-customhooks-参照)|
 
