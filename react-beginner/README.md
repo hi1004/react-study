@@ -1,7 +1,6 @@
 # <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=fff"> Reactの基礎
 
 ## 1. Reactとは？
-<hr/>
 
 > ReactはJavaScriptライブラリーでユーザーインターフェース(UI)を作ります。仕組みがMVCやMVWなどのフレームワークとは違い、**ひたすらV(View)だけ気にするライブラリー**です。
 
@@ -33,7 +32,7 @@
 <br />
 
 ## 2. JSXとは？
-<hr/>
+
 
 > JSXはJavaScriptの拡張文法であり、XMLと似ています。このような形式で作成されたコードはブラウザで実行する前にコードが`Babel`を通し、JavaScriptコードに変換されます。
 
@@ -195,7 +194,7 @@ export default App;
 <br />
 
 ## 3. propsとは？
-<hr/>
+
 
 > propsとはpropertiesを縮めた表現でコンポーネントの属性を設定する時使う要素です。propsの値は該当コンポーネントを呼び出して使う親コンポーネント（現状況ではAppコンポーネントが親コンポーネントです）から設定出来ます。
 
@@ -208,7 +207,7 @@ export default App;
 <br/>
 
 ## 4. stateとは
-<hr/>
+
 
 > Reactでstateはコンポーネント内部で変われる値を意味します。porpsはコンポーネントが使用される過程で親コンポーネントが設定する値で、コンポーネントはpropsを読み込み専用(Read Only)しか使えません。propsを変えるなら、親コンポーネントで変えなけれなりません。
 
@@ -217,7 +216,7 @@ export default App;
 <br/>
 
 ## 5. Event Handling
-<hr/>
+
 
 >ユーザーがウェブブラウザでDOM要素と相互作用することをイベント(Event)と言います。
 
@@ -238,7 +237,7 @@ export default App;
 <br/>
 
 ## 6. ref:DOMに名づける(useRef)
-<hr/>
+
 
 > refは特定のDOMを作業する時使いますが、具体的には**DOMを直接に触れる時**使います。
 
@@ -250,7 +249,7 @@ export default App;
 <br/>
 
 ## 7. コンポーネントの繰り返しとkey
-<hr/>
+
 
 > コンポーネントを繰り返すことで、効率が上がります。**map( )**関数を使って繰り返すことができます。
 
@@ -263,7 +262,6 @@ export default App;
 <br/>
 
 ## 8. Hooks
-<hr/>
 
 > React v16.8から新しく導入された機能で関数コンポーネントでも状態管理ができるようになりました。
 
