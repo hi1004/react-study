@@ -1,15 +1,17 @@
 .TodoTemplate {
   width: 512px;
-  margin: 0 auto;
-  margin-top: 6rem;
   border-radius: 4px;
   overflow: hidden;
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   .app-title {
     background-color: #22b8cf;
     color: #fff;
     height: 4rem;
     font-size: 1.5rem;
+    font-weight: 900;
     display: flex;
     align-items: center;
     justify-content: center;

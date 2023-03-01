@@ -7,20 +7,26 @@ import {
 import cn from 'classnames';
 import './TodoListItem.scss';
 
-function TodoListItem({ todo, onRemove, onToggle }) {
-  const { id, text, checked } = todo;
+const TodoListItem = ({ todo, onRemove, onToggle, style }) => {
+  const { id, text, checked, date } = todo;
+  const { year, month, day } = date;
 
   return (
-    <li className="TodoListItem">
-      <div className={cn('checkbox', { checked })} onClick={() => onToggle(id)}>
-        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-        <div className="text">{text}</div>
-      </div>
-      <div className="remove" onClick={() => onRemove(id)}>
-        <MdRemoveCircleOutline />
+    <li className="TodoListItem-virtualized" style={style}>
+      <div className="TodoListItem" onClick={() => onToggle(id)}>
+        <div className={cn('checkbox', { checked })}>
+          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          <div className="text">{text}</div>
+          <div className="date">
+            {year}/{month + 1}/{day}
+          </div>
+        </div>
+        <div className="remove" onClick={() => onRemove(id)}>
+          <MdRemoveCircleOutline />
+        </div>
       </div>
     </li>
   );
-}
+};
 
-export default TodoListItem;
+export default React.memo(TodoListItem);

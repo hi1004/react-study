@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import './TodoInsert.scss';
 
-function TodoInsert({ onInsert }) {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
   const inputEl = useRef();
   const onSubmit = useCallback(
@@ -29,6 +29,6 @@ function TodoInsert({ onInsert }) {
       </button>
     </form>
   );
-}
+};
 
 export default TodoInsert;
