@@ -1,4 +1,4 @@
-# immmer
+# immer
 
 > immer ライブラリーを使えば**不変性を維持**しながら状態をアップデートできます。
 
@@ -12,7 +12,7 @@ $ npm install immer
 ```
 <br/>
 
-## 2. immmer の使い方
+## 2. immer の使い方
 
 ```js
 import produce from 'immer';
