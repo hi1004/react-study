@@ -2,15 +2,14 @@
 
 
 ## 目次
-[end](##end)
 |主題|내용|
 |------|---|
-|[1. Reactとは？](##1.)|[1.1 Reactの特徴](###1.1)<br/>[1.2 Reactの設置](###1.2)|
+|[1. Reactとは？](#1.-Reactとは？)|[1.1 Reactの特徴](#1.1-Reactの特徴)<br/>[1.2 Reactの設置](###1.2-Reactの設置)|
 |[2. JSXとは？](##2.-JSXとは？)|[2.1 JSXのメリット](###2.1-JSXのメリット)<br/>[2.2 JSX文法](###2.2-JSX文法)|
 |[3. propsとは？](##1.-Reactとは？)||
 |[4. stateとは?](##4.-stateとは)||
 |[5. Event Handling](##5.-Event-Handling)|[5.1 イベントを使う時気を付ける事](###5.1-イベントを使う時気を付ける事)<br/>[5.2 onChange, onClick, onKeyDown](###5.2-onChange,-onClick,-onKeyDown)|
-|[6. ref:DOMに名づけるuseRef](##6.-ref:DOMに名づける(useRef))|[6.1 DOMを必ず使わないとならない場合](###6.1-DOMを必ず使わないとならない場合)|
+|[6. ref:DOMに名づける(useRef)](##6.-ref:DOMに名づける(useRef))|[6.1 DOMを必ず使わないとならない場合](###6.1-DOMを必ず使わないとならない場合)|
 |[7. コンポーネントの繰り返しとkey](##7.-コンポーネントの繰り返しとkey)|[7.1 配列map関数](###7.1-配列map関数)<br/>[7.2 filter関数でデータの除去](###7.2-filter関数でデータの除去)|
 |[## 8. Hooks](##8.-Hooks)|[8.1 useState](###8.1-useState)<br/>[8.2 useEffect](###8.2-useEffect)<br/>[8.3 useReducer](###8.3-useReducer)<br/>[8.4 useMemo](###8.4-useMemo)<br/>[8.5 useCallback](###8.5-useCallback)<br/>[8.6 useRef](###8.6-useRef)<br/>[8.7 customHooks](###8.7-customHooks)|
 
@@ -341,7 +340,7 @@
 >コンポーネントの機能が似ている場合、直接Hookを作成し、再利用できます。
 
 
-## end
+
 
 
 
