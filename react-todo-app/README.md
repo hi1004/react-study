@@ -24,7 +24,7 @@
 | `React v18`<br>`sass`<br>`react-icons` | `Git`<br/>`Github`       |
 
 ##### 2.2 パッケージモジュール
-
+- `yarn`
 - `create-react-app` : 開発環境セッティング
 - `eslint`, `prettier` : コードフォーマット、開発単位でのコード品質管理
 - `react-virtualized` : TodoList コンポーネントのレンダリング性能を効率的に改善
