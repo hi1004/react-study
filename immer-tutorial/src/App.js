@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
+import produce from 'immer';
 
 const App = () => {
   const [form, setForm] = useState({
@@ -19,10 +20,11 @@ const App = () => {
         username,
         name,
       };
-      setData(data => ({
-        ...data,
-        array: data.array.concat(info),
-      }));
+      setData(
+        produce(draft => {
+          draft.array.push(info);
+        })
+      );
 
       setForm({
         username: '',
@@ -34,17 +36,23 @@ const App = () => {
   );
   const onChange = useCallback(e => {
     const { name, value } = e.target;
-    setForm(form => ({
-      ...form,
-      [name]: [value],
-    }));
+
+    setForm(
+      produce(draft => {
+        draft[name] = value;
+      })
+    );
   }, []);
 
   const onRemove = useCallback(id => {
-    setData(data => ({
-      ...data,
-      array: data.array.filter(info => info.id !== id),
-    }));
+    setData(
+      produce(draft => {
+        draft.array.splice(
+          draft.array.findIndex(info => info.id === id),
+          1
+        );
+      })
+    );
   }, []);
 
   return (
