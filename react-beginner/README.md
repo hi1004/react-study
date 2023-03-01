@@ -1,10 +1,24 @@
 # <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=fff"> Reactの基礎
 
+
+## 目次
+|主題|내용|
+|------|---|
+|[1. Reactとは？](##1.-Reactとは？)|[1.1 Reactの特徴](###1.1-Reactの特徴)<br/>[1.2 Reactの設置](###1.2-Reactの設置)|
+|[2. JSXとは？](##2.-JSXとは？)|[2.1 JSXのメリット](###2.1-JSXのメリット)<br/>[2.2 JSX文法](###2.2-JSX文法)|
+|[3. propsとは？](##1.-Reactとは？)||
+|[4. stateとは?](##4.-stateとは)||
+|[5. Event Handling](##5.-Event-Handling)|[5.1 イベントを使う時気を付ける事](###5.1-イベントを使う時気を付ける事)<br/>[5.2 onChange, onClick, onKeyDown](###5.2-onChange,-onClick,-onKeyDown)|
+|[6. ref:DOMに名づける(useRef)](##6.-ref:DOMに名づける(useRef))|[6.1 DOMを必ず使わないとならない場合](###6.1-DOMを必ず使わないとならない場合)|
+|[7. コンポーネントの繰り返しとkey](##7.-コンポーネントの繰り返しとkey)|[7.1 配列map関数](###7.1-配列map関数)<br/>[7.2 filter関数でデータの除去](###7.2-filter関数でデータの除去)|
+|[## 8. Hooks](##8.-Hooks)|[8.1 useState](###8.1-useState)<br/>[8.2 useEffect](###8.2-useEffect)<br/>[8.3 useReducer](###8.3-useReducer)<br/>[8.4 useMemo](###8.4-useMemo)<br/>[8.5 useCallback](###8.5-useCallback)<br/>[8.6 useRef](###8.6-useRef)<br/>[8.7 customHooks](###8.7-customHooks)|
+
+
 ## 1. Reactとは？
 
 > ReactはJavaScriptライブラリーでユーザーインターフェース(UI)を作ります。仕組みがMVCやMVWなどのフレームワークとは違い、**ひたすらV(View)だけ気にするライブラリー**です。
 
-### 1.1 Reactの特養
+### 1.1 Reactの特徴
 - Virtual DOM
   - データをアップデートすると、全体UIをVirtual DOMにレンダリングします。
   - 以前のVirtual DOMにあった内容と現在の内容を比較します。
@@ -255,9 +269,9 @@
 
 > keyはデータの修正や生成、除去などVirtual DOMが変化をより早く感知することができます。
 
-### 7.1 JavaScriptの配列、map( )関数とkey [[参照]](https://github.com/hi1004/react-study/commit/c2331f986a08a2ab6ab059113624f6db1100872e#diff-21056191455bc9a716e604dd4b06b743231c56a5197f244f4ed683d68ef03cc0R1-R11)
+### 7.1 map関数で繰り返し [[参照]](https://github.com/hi1004/react-study/commit/c2331f986a08a2ab6ab059113624f6db1100872e#diff-21056191455bc9a716e604dd4b06b743231c56a5197f244f4ed683d68ef03cc0R1-R11)
 
-### 7.2 JavaScriptの配列、filter( )関数でデータの除去 [[参照]](https://github.com/hi1004/react-study/commit/b87a78c44d8a9e80125a88dc6f88558c200b2fda#diff-21056191455bc9a716e604dd4b06b743231c56a5197f244f4ed683d68ef03cc0R23-R26)
+### 7.2 filter関数でデータの除去 [[参照]](https://github.com/hi1004/react-study/commit/b87a78c44d8a9e80125a88dc6f88558c200b2fda#diff-21056191455bc9a716e604dd4b06b743231c56a5197f244f4ed683d68ef03cc0R23-R26)
 
 <br/>
 
@@ -322,7 +336,7 @@
 
 - ローカル変数とDOM接近 [[参照]](https://github.com/hi1004/react-study/commit/52d8ec53c43df23c3b42223f904370a8a2b29880#diff-c22260a85d518e9e592da6a93f7ddf318d5a681a2af4d4765734a7275acc29fcR1-R17)
 
-### 8.7 custom Hooks [[参照]](https://github.com/hi1004/react-study/commit/18534046af9e12cca39cc7117e10ab0c18333e3f#diff-e0f861f2f519d3d1e441ced2ace39ad3e73f5b478dd1f4d7c6d6a195805e16c7R1-R16)
+### 8.7 customHooks [[参照]](https://github.com/hi1004/react-study/commit/18534046af9e12cca39cc7117e10ab0c18333e3f#diff-e0f861f2f519d3d1e441ced2ace39ad3e73f5b478dd1f4d7c6d6a195805e16c7R1-R16)
 >コンポーネントの機能が似ている場合、直接Hookを作成し、再利用できます。
 
 
