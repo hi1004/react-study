@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import Articles from './pages/Articles';
 import Article from './pages/Article';
 import Layout from './Layout';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/articles" element={<Articles />}>
         <Route path=":id" element={<Article />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
