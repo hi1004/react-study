@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://newsapi.org/v2/top-headlines',
+  baseURL: 'https://newsapi.org/v2',
   params: {
     apiKey: process.env.REACT_APP_APIKEY,
-    country: 'jp',
+    searchIn: 'title',
+    page: 1,
   },
 });
 export default instance;
