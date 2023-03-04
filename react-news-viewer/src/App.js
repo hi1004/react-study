@@ -25,7 +25,14 @@ function App() {
           text,
         )}&language=${language}&sortBy=${sortBy}`,
       );
-      setNewsInfo(res.data.articles);
+
+      // 중복 기사 제거
+      const filterNews = res.data.articles.filter(
+        (arr, index, callback) =>
+          index === callback.findIndex(t => t.title === arr.title),
+      );
+
+      setNewsInfo(filterNews);
     } catch (e) {
       throw new Error(e);
     } finally {
@@ -34,7 +41,10 @@ function App() {
   }, [text, language, sortBy]);
 
   useEffect(() => {
-    if (!text.trim()) return;
+    if (!text.trim()) {
+      setNewsInfo(null);
+      return;
+    }
     fetchData();
     setLoading(true);
   }, [text, fetchData]);
@@ -66,7 +76,10 @@ function App() {
     <div className="App">
       <SearchFormBlock onSubmit={handleSubmit}>
         <div className="search-bar">
-          <MdSearch className="search-icon" />
+          <div className="search">
+            <MdSearch className="search-icon" />
+          </div>
+
           <input
             type="text"
             value={text}
@@ -95,6 +108,7 @@ function App() {
         newsInfo={newsInfo}
         loading={loading}
         language={language}
+        fetchData={fetchData}
       />
     </div>
   );
@@ -106,29 +120,38 @@ const SearchFormBlock = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  height: calc(100vh - 600px);
+
   .search-bar {
-    width: 350px;
-    height: 35px;
+    width: 600px;
+    height: 60px;
     border-radius: 5px;
-    border: solid 1px rgba(0, 0, 0, 0.3);
+    border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1.2rem;
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    .search-icon {
-      width: 37px;
-      height: 25px;
-      border-right: 1px solid rgba(0, 0, 0, 0.3);
-      padding: 0 0.5rem;
+      .search-icon {
+        width: 37px;
+        height: 25px;
+        border-right: 1px solid rgb(202 103 103 / 30%);
+        padding-right: 1rem;
+      }
     }
+
     input {
       width: 100%;
       border: none;
-      margin-left: 10px;
+      margin-left: 1.4rem;
       overflow: auto;
-      font-size: 1rem;
+      font-size: 1.4rem;
       transition: 0.4s;
+      background-color: transparent;
       &:focus {
         outline: none;
         transition: 0.4s;
@@ -137,12 +160,13 @@ const SearchFormBlock = styled.form`
     select {
       outline: none;
       border: none;
+      font-size: 1.1rem;
       cursor: pointer;
-      border-left: 1px solid rgba(0, 0, 0, 0.3);
-      padding: 0 0.3rem;
+      border-left: 1px solid rgb(202 103 103 / 30%);
+      padding: 0 1rem;
       height: 25px;
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.9rem;
+      background-color: transparent;
     }
   }
 `;

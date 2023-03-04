@@ -3,5 +3,10 @@
   padding: 0;
 }
 body {
+  height: 100vh;
   font-family: 'Noto Sans JP', sans-serif;
+  background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

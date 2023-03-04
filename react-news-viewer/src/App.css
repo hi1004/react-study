@@ -1,0 +1,15 @@
+.ReactVirtualized__Grid__innerScrollContainer {
+  max-width: 100% !important;
+}
+
+@media screen and (min-width: 1065px) {
+  .ReactVirtualized__Grid__innerScrollContainer {
+    margin: 0 10vw;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .ReactVirtualized__Grid__innerScrollContainer {
+    margin: 0 !important;
+  }
+}

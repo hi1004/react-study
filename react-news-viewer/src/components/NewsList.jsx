@@ -1,24 +1,81 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { List } from 'react-virtualized';
 import NewsItem from './NewsItem';
 
-const NewsList = ({ newsInfo, loading, language }) => {
+const NewsList = ({ newsInfo, loading, language, text }) => {
+  const rowRenderer = useCallback(
+    ({ key, index, style }) => {
+      const listItem = newsInfo[index];
+
+      return (
+        <NewsListBlock key={key} style={style}>
+          <NewsItem article={listItem} language={language} />
+        </NewsListBlock>
+      );
+    },
+    [newsInfo],
+  );
+
+  if (!newsInfo?.length && !loading) {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: 600,
+
+          position: 'absolute',
+          bottom: 0,
+        }}
+      >
+        {text && (
+          <Message>
+            {(language === 'jp' && (
+              <h2>{`"${text}"の検索結果がありません。`}</h2>
+            )) ||
+              (language === 'ko' && (
+                <h2>{`"${text}"의 검색결과가 없습니다.`}</h2>
+              )) ||
+              (language === 'en' && (
+                <h2>{`No search result for "${text}"`}</h2>
+              ))}
+          </Message>
+        )}
+      </div>
+    );
+  }
+
   if (loading) {
     return (
-      <NewsListBlock>
+      <NewsListBlock
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          bottom: 0,
+        }}
+      >
         <Loading />
       </NewsListBlock>
     );
   }
 
-  if (!newsInfo) return null;
-
   return (
-    <NewsListBlock>
-      {newsInfo.map(article => (
-        <NewsItem key={article.url} article={article} language={language} />
-      ))}
-    </NewsListBlock>
+    <List
+      className="NewsList"
+      width={window.innerWidth - 400}
+      height={600}
+      rowCount={newsInfo.length}
+      rowHeight={400}
+      rowRenderer={rowRenderer}
+      list={newsInfo}
+      style={{
+        width: '100%',
+
+        position: 'absolute',
+        bottom: 0,
+      }}
+    />
   );
 };
 
@@ -26,17 +83,24 @@ export default React.memo(NewsList);
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
-  padding-bottom: 3rem;
-  width: 768px;
-  height: 680px;
+  display: flex;
+  justify-content: space-around;
   margin: 0 auto;
-  margin-top: 2rem;
-  @media screen and (max-width: 768px) {
+  &:first-child {
     width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+  }
+
+  & + & {
+    padding: 2.5rem;
+    border-top: 2px solid #e0acac80;
+  }
+  &:nth-child(2n-1) {
+    background: radial-gradient(#ffffff, transparent);
   }
 `;
+
 const Loading = styled.div`
   width: 2rem;
   height: 2rem;
@@ -57,4 +121,10 @@ const Loading = styled.div`
       transform: rotate(360deg);
     }
   }
+`;
+const Message = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
