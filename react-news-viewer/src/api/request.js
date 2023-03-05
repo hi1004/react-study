@@ -1,5 +1,5 @@
 const request = {
   fetchEverything: `/everything?q`,
-  fetchTopHeadlines: '/top-headlines',
+  fetchTopHeadlines: '/top-headlines?',
 };
 export default request;

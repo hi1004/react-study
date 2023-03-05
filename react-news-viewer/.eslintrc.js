@@ -36,5 +36,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'no-plusplus': 'off',
     'no-shadow': 'off',
+    'react/no-danger-with-children': 'off',
+    'react/no-danger': 'off',
   },
 };

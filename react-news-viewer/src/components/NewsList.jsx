@@ -10,7 +10,7 @@ const NewsList = ({ newsInfo, loading, language, text }) => {
 
       return (
         <NewsListBlock key={key} style={style}>
-          <NewsItem article={listItem} language={language} />
+          <NewsItem article={listItem} language={language} text={text} />
         </NewsListBlock>
       );
     },
@@ -23,7 +23,6 @@ const NewsList = ({ newsInfo, loading, language, text }) => {
         style={{
           width: '100%',
           height: 600,
-
           position: 'absolute',
           bottom: 0,
         }}
@@ -71,7 +70,6 @@ const NewsList = ({ newsInfo, loading, language, text }) => {
       list={newsInfo}
       style={{
         width: '100%',
-
         position: 'absolute',
         bottom: 0,
       }}
@@ -86,6 +84,8 @@ const NewsListBlock = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
+  background: radial-gradient(#000000, transparent);
+
   &:first-child {
     width: 100%;
     padding: 2.5rem;
@@ -94,10 +94,7 @@ const NewsListBlock = styled.div`
 
   & + & {
     padding: 2.5rem;
-    border-top: 2px solid #e0acac80;
-  }
-  &:nth-child(2n-1) {
-    background: radial-gradient(#ffffff, transparent);
+    border-top: 1px solid #faf5f580;
   }
 `;
 
@@ -105,7 +102,7 @@ const Loading = styled.div`
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  border: 3px solid red;
+  border: 3px solid #fff;
   border-top-color: transparent;
   animation: loadingAnimation 0.5s infinite linear;
   position: absolute;
@@ -127,4 +124,5 @@ const Message = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+  color: #fff;
 `;

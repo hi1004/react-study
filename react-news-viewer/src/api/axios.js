@@ -5,7 +5,6 @@ const instance = axios.create({
   params: {
     apiKey: process.env.REACT_APP_APIKEY,
     searchIn: 'title',
-    page: 1,
   },
 });
 export default instance;
