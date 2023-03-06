@@ -28,6 +28,32 @@
 <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=Yarn&logoColor=white"> <img src="https://img.shields.io/badge/Create_React_App-09D3AC?style=for-the-badge&logo=Create React App&logoColor=white"><br/><img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=Prettier&logoColor=white"><br/> <img src="https://img.shields.io/badge/.ENV-ECD53F?style=for-the-badge&logo=.ENV&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
 <img src="https://img.shields.io/badge/react_virtualized-0B556A?style=for-the-badge&logoColor=white">
 
+## 3. News API
+
+- api/axios.js
+  ```js
+  import axios from 'axios';
+
+  const instance = axios.create({
+    baseURL: 'https://newsapi.org/v2',
+    params: {
+      apiKey: process.env.REACT_APP_APIKEY,
+      searchIn: 'title',
+    },
+  });
+  export default instance;
+  ```
+- api/request.js
+  ```js
+  const request = {
+    fetchEverything: `/everything?q`, // 検索
+    fetchTopHeadlines: '/top-headlines?', //ヘッドライン
+  };
+  export default request;
+  ```
+- src/app.js [[参照]](https://github.com/hi1004/react-study/blob/main/react-news-viewer/src/App.js#L24-L73)
+
+
 ## 3. コア機能
 
 ### 3.1 検索
@@ -69,3 +95,4 @@
 📌 `react_virtualized`で不要なコンポーネントのレンダリングを防げました。
 
 📌 `useCallback()`,`React.memo()`を必要な所で使い、性能を上げました。
+
