@@ -79,6 +79,7 @@ function App() {
   const onLanguageSelect = e => {
     setLanguage(e.target.value);
     inputEl.current.focus();
+    setText('');
   };
   const onSortBy = e => {
     setSortBy(e.target.value);

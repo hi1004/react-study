@@ -52,6 +52,7 @@ const NewsList = ({ newsInfo, loading, language, text }) => {
           height: '100%',
           position: 'absolute',
           bottom: 0,
+          background: 'transparent',
         }}
       >
         <Loading />

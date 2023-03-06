@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 🔍 News Search Viewer 📰
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![img](https://user-images.githubusercontent.com/80688093/223093741-92806cec-eebd-46c0-9105-479a59fa7cbd.png)
 
-## Available Scripts
+## 1. プロジェクト紹介
 
-In the project directory, you can run:
+### 📌 概要
 
-### `yarn start`
+> - React で News API を連動した`News検索アプリケーション`です。
+> - 今まで勉強した内容を生かし、API を使ったレスポンシブ Web アプリケーションです。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 開発期間 : `2023.03.03 ~ 2023.03.06`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. 開発環境
 
-### `yarn test`
+### 2.1 技術
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| フロントエンド                                                                                                                                                                                                                            | バックエンド                   | バージョン、イシュー管理                                                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"> <br><img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"><br> | `News API提供(無料ライセンス)` | <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"><br/><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"> |
 
-### `yarn build`
+- ❗News API を無料ライセンスで使っているため、`100回までサーバーに要請`できます。
+- ❗ 無料ライセンスの News API は`ローカル環境(https://localhost:3000)`でしか使えなかったため、デプロイしても正常に動きません。
+- ❗ データは先月からのニュースにしています。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2.2 パッケージモジュール
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=Yarn&logoColor=white"> <img src="https://img.shields.io/badge/Create_React_App-09D3AC?style=for-the-badge&logo=Create React App&logoColor=white"><br/><img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=Prettier&logoColor=white"><br/> <img src="https://img.shields.io/badge/.ENV-ECD53F?style=for-the-badge&logo=.ENV&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
+<img src="https://img.shields.io/badge/react_virtualized-0B556A?style=for-the-badge&logoColor=white">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 3. コア機能
 
-### `yarn eject`
+### 3.1 検索
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](https://user-images.githubusercontent.com/80688093/223109249-80ea89a5-3167-446e-ac33-b9e7d518c7aa.gif)
+📌 検索する前、`初期ページではヘッドラインニュース`が表示されるようになっています。（ヘッドラインニュースは検索欄が空欄の時、表れます）
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+📌 各言語ごとに`キーワードで検索`すると、よりたくさんの情報が得られます。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📌 `検索結果がない場合は結果がないメッセージを出力`します。
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📌 `検索結果は最大100個`までしています。
 
-## Learn More
+### 3.2 言語設定
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📌 `日本語(Default)、韓国語、英語の中で一つの言語`を選べ、検索できるようになっています。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📌 検索結果も設定した言語によって異なります。
 
-### Code Splitting
+### 3.3 整列
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+📌 `言語を含め、記事が指定したソート順に並べる`ことは[NewsApi](https://newsapi.org/docs/endpoints/everything)の公式文書で参考しました。
 
-### Analyzing the Bundle Size
+📌 `最新(Default)`、`関連`、`人気`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📌 `all(Default)`、`title`、`title + content`
 
-### Making a Progressive Web App
+📌 検索したキーワードを基づき、各記事のタイトルやコンテンツから`一致したキーワードにハイライトする機能`です。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3.4 レスポンシブ Web
 
-### Advanced Configuration
+### 3.5 性能最適化
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📌 `react_virtualized`で不要なコンポーネントのレンダリングを防げました。
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📌 `useCallback()`,`React.memo()`を必要な所で使い、性能を上げました。

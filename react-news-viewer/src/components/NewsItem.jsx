@@ -8,9 +8,9 @@ const NewsItem = ({ article, language, text }) => {
   if (lang === 'jp') lang = 'ja';
 
   if (text.trim()) {
-    title = title.split(text).join(`<span class='highlight'>${text}</span>`);
+    title = title?.split(text).join(`<span class='highlight'>${text}</span>`);
     description = description
-      .split(text)
+      ?.split(text)
       .join(`<span class='highlight'>${text}</span>`);
   }
 
@@ -73,6 +73,7 @@ const NewsItemVirtualized = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+
   & + & {
     border-top: 1px solid #ccc;
   }
