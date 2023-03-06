@@ -32,7 +32,8 @@
 
 ### 3.1 検索
 
-![](https://user-images.githubusercontent.com/80688093/223109249-80ea89a5-3167-446e-ac33-b9e7d518c7aa.gif)
+![News-Search-App-search](https://user-images.githubusercontent.com/80688093/223112591-4e28944c-08c5-49d0-bff8-4bf59d706c99.gif)
+
 📌 検索する前、`初期ページではヘッドラインニュース`が表示されるようになっています。（ヘッドラインニュースは検索欄が空欄の時、表れます）
 
 📌 各言語ごとに`キーワードで検索`すると、よりたくさんの情報が得られます。
