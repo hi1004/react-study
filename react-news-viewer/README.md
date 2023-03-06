@@ -44,7 +44,7 @@
 
 ### 3.2 言語設定
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/80688093/223118384-6de93272-a523-4ad4-81d5-216e869a136a.gif)
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/80688093/223118847-0003b4bb-5fad-4d51-83ec-ec431ff2208e.gif)
 
 📌 `日本語(Default)、韓国語、英語の中で一つの言語`を選べ、検索できるようになっています。
 
