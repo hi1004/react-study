@@ -64,6 +64,8 @@
 
 ## 2. 動的 Context
 
+![colors](https://user-images.githubusercontent.com/80688093/223726414-47e66b2b-a671-473c-9569-8c0e93bfa6b9.png)
+
 - Context の value には必ずしも状態の値だけではなく、関数も伝えられます。
 
   ```js
