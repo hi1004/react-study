@@ -64,7 +64,7 @@
 
 ## 2. 動的 Context
 
-![colors](https://user-images.githubusercontent.com/80688093/223726414-47e66b2b-a671-473c-9569-8c0e93bfa6b9.png)
+![constext](https://user-images.githubusercontent.com/80688093/223728960-468e69b8-0766-40d4-87fa-73289e78e973.gif)
 
 - Context の value には必ずしも状態の値だけではなく、関数も伝えられます。
 
