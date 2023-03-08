@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# 😀 Context API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> コンポーネントの間に状態を交流する時は必ず親コンポーネントから子コンポーネントに`props`で伝えましたが、`Context API`で簡単に状態を管理するようになりました。
 
-## Available Scripts
+## 1. Context、Consumer、Provider
 
-In the project directory, you can run:
+### 1.1 Context
 
-### `yarn start`
+- 新しい Context を作る時は`createContext`関数を使います。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  ```js
+  import { createContext } from 'react';
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  // パラメータにはContextの基本状態を指定
+  const ColorContext = createContext({ color: 'black' });
 
-### `yarn test`
+  export default ColorContext;
+  ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1.2 Consumer
 
-### `yarn build`
+- ColorContext の中にある`Consumer`というコンポーネントを通して色が照会できます。
+- Consumer の間に関数を入れるパターンのことを`Function as a child`または`Render Props`と言われます。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```jsx
+  import ColorContext from '../contexts/color';
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  // Function as a childまたはRender Propsパターン
+  const ColorBox = () => {
+    return (
+      <>
+        <ColorContext.Consumer>
+          {value => (
+            <div
+              style={{
+                width: '64px',
+                height: '64px',
+                backgroundColor: value.color,
+              }}
+            />
+          )}
+        </ColorContext.Consumer>
+      </>
+    );
+  };
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  export default ColorBox;
+  ```
 
-### `yarn eject`
+### 1.3 Provider
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Provider を使えば`Contextのvalueを変更`できます。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```jsx
+  // App.js
+  import ColorContext from './contexts/color';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  // Providerを使えばContextのvalueが変更できる。
+  // Providerを使う時はvalueの値を明示する。
+  <ColorContext.Provider value={{ color: 'red' }}>
+    <ColorBox />
+  </ColorContext.Provider>;
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 2. 動的 Context
 
-## Learn More
+- Context の value には必ずしも状態の値だけではなく、関数も伝えられます。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ```js
+  // color.js
+  import { createContext, useState } from 'react';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  const ColorContext = createContext({
+    state: { color: 'black', subcolor: 'red' },
+    actions: {
+      setColor: () => {},
+      setSubcolor: () => {},
+    },
+  });
 
-### Code Splitting
+  const ColorPorivider = ({ children }) => {
+    const [color, setColor] = useState('black');
+    const [subcolor, setSubcolor] = useState('red');
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    const value = {
+      state: { color, subcolor }, // 状態
+      actions: { setColor, setSubcolor }, // アップデート関数
+    };
+    return (
+      <ColorContext.Provider value={value}>{children}</ColorContext.Provider>
+    );
+  };
 
-### Analyzing the Bundle Size
+  // const ColorConsumer = ColorContext.Consumerと同じ意味
+  const { Consumer: ColorConsumer } = ColorContext;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  export { ColorPorivider, ColorConsumer };
+  export default ColorContext;
+  ```
 
-### Making a Progressive Web App
+- ColorProvider 適用(state の color) [[参照]](https://github.com/hi1004/react-study/commit/184afcd3f7c53c4b78036d2dd26ade3087fa0530#diff-e94a79d9391115ac02900d7d76f146e98d79db11e614ab1db98b7a807349cbbeR11-R16)
+- ColorConsumer 適用(state の color) [[参照]](https://github.com/hi1004/react-study/commit/184afcd3f7c53c4b78036d2dd26ade3087fa0530#diff-5a99af45c2c707b88ec909f09fb129c86a23d1cd670cbffcf75bc050053ad894R8-R25)
+- ColorConsumer 適用(actions の setColor と setSubcolor) [[参照]](https://github.com/hi1004/react-study/commit/184afcd3f7c53c4b78036d2dd26ade3087fa0530#diff-67ba4ca57a02398b3e7f2af7608a5d63f2ee7d8856623a56defb4ad533e2cb3dR1-R36)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 3. useContext [[参照]](https://github.com/hi1004/react-study/commit/8d6437e9727365190de69d469b1409f7b32a35e7#diff-5a99af45c2c707b88ec909f09fb129c86a23d1cd670cbffcf75bc050053ad894R5)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Hook は関数コンポーネントしか使えません。
+- useContext を Consumer の変わりにより簡単に Context の値を照会できます。
