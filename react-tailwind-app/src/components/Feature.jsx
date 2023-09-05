@@ -49,6 +49,46 @@ const Feature = () => {
               </p>
             </div>
           </div>
+          <div className="flex">
+            <FaCheck className="mt-1 mr-3 text-blue-600 w-7" />
+            <div>
+              <h3 className="text-lg font-bold">Real-Time</h3>
+              <p className="pt-2 pb-4 text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo,
+                tempora.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <FaCheck className="mt-1 mr-3 text-blue-600 w-7" />
+            <div>
+              <h3 className="text-lg font-bold">Real-Time</h3>
+              <p className="pt-2 pb-4 text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo,
+                tempora.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <FaCheck className="mt-1 mr-3 text-blue-600 w-7" />
+            <div>
+              <h3 className="text-lg font-bold">Real-Time</h3>
+              <p className="pt-2 pb-4 text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo,
+                tempora.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <FaCheck className="mt-1 mr-3 text-blue-600 w-7" />
+            <div>
+              <h3 className="text-lg font-bold">Real-Time</h3>
+              <p className="pt-2 pb-4 text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo,
+                tempora.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
